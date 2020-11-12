@@ -58,7 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\qqq.cs" />
+     <Compile Include="Assets\Scripts\PacManMove.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Emma/Documents/Study--PAC-MAN--20.11.10/PAC-MAN-Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
