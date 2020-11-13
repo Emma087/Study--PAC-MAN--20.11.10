@@ -58,7 +58,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GhostMove.cs" />
      <Compile Include="Assets\Scripts\PacManMove.cs" />
+     <Compile Include="Assets\Scripts\Pacdots.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Emma/Documents/Study--PAC-MAN--20.11.10/PAC-MAN-Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

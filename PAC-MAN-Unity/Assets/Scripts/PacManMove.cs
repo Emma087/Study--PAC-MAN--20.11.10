@@ -18,23 +18,34 @@ public class PacManMove : MonoBehaviour
     {
         if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && Valid(Vector2.up))
         {
+            Debug.Log("上");
             destination = (Vector2) transform.position + Vector2.up;
         }
 
         if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && Valid(Vector2.down))
         {
             destination = (Vector2) transform.position + Vector2.down;
+            Debug.Log("下");
         }
 
         if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && Valid(Vector2.left))
         {
             destination = (Vector2) transform.position + Vector2.left;
+            Debug.Log("左");
         }
 
         if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && Valid(Vector2.right))
         {
             destination = (Vector2) transform.position + Vector2.right;
+            Debug.Log("右");
         }
+    }
+
+    private void GetPlayerDirection() //获得主角的实时方向，并且播放动画
+    {
+        Vector2 direction = destination - (Vector2) transform.position;
+        GetComponent<Animator>().SetFloat("DirectionX", direction.x);
+        GetComponent<Animator>().SetFloat("DirectionY", direction.y);
     }
 
     private bool Valid(Vector2 direction) //射线函数检测，目的地是否为边缘，
@@ -50,13 +61,13 @@ public class PacManMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 temp =
-            Vector2.MoveTowards(transform.position, destination, speed);
+        Vector2 temp = Vector2.MoveTowards(transform.position, destination, speed);
         GetComponent<Rigidbody2D>().MovePosition(temp);
         if ((Vector2) transform.position == destination)
         {
             //这句 if 限制的是，这一次的目的地已经达到以后，才可以变动下一次的目的地
             SetKeyboardMove();
+            GetPlayerDirection();
         }
     }
 }
